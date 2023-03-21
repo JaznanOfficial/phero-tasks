@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const SignInComponent = () => {
     return (
         <Container>
-            <Button variant="outline-dark mx-3 mb-5">
-                <Link to={"/"}>New User? sign Up here</Link>
-            </Button>
+            <Link to={"/"}>
+                <Button variant="outline-dark mx-3 mb-5">New User? sign Up here</Button>
+            </Link>
             <Form>
                 <div className="d-flex flex-row align-items-start justify-content-center">
                     <div className="mx-3">

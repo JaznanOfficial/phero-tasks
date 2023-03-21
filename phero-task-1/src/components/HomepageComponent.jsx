@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 const HomepageComponent = () => {
     return (
         <div className="d-flex flex-row justify-content-center align-items-center">
-            <Button variant="outline-dark mx-3">
-                <Link to={"/join-rider"}>Join as a rider</Link>
-            </Button>
-            <Button variant="outline-dark mx-3">
-                <Link to={"/join-learner"}>Join as a Driving Lesson Learner</Link>
-            </Button>
-            <Button variant="outline-dark mx-3">
-                <Link to={"/sign-in"}>Already signed up? sign in here</Link>
-            </Button>
+            <Link to={"/join-rider"}>
+                <Button variant="outline-dark mx-3">Join as a rider</Button>
+            </Link>
+            <Link to={"/join-learner"}>
+                <Button variant="outline-dark mx-3">Join as a Driving Lesson Learner</Button>
+            </Link>
+            <Link to={"/sign-in"}>
+                <Button variant="outline-dark mx-3">Already signed up? sign in here</Button>
+            </Link>
         </div>
     );
 };
