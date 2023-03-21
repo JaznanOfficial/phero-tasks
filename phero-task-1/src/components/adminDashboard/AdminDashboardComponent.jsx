@@ -4,16 +4,19 @@ import "./AdminDashboardComponent.css";
 
 const AdminDashboardComponent = () => {
     return (
-        <div class="mt-5 px-2 w-100">
-            <div class="mb-2 d-flex justify-content-between align-items-center w-100">
-                <div class="position-relative">
-                    <span class="position-absolute search">
-                        <i class="fa fa-search"></i>
+        <div className="mt-5 px-2 w-100">
+            <div className="mb-2 d-flex justify-content-between align-items-center w-100">
+                <div className="position-relative">
+                    <span className="position-absolute search">
+                        <i className="fa fa-search"></i>
                     </span>
-                    <input class="form-control w-100" placeholder="Search by name, email, phone" />
+                    <input
+                        className="form-control w-100"
+                        placeholder="Search by name, email, phone"
+                    />
                 </div>
 
-                <div class="px-2">
+                <div className="px-2">
                     <Form.Select aria-label="Default select example">
                         <option>Age</option>
                         <option value="18-25">18-25</option>
@@ -23,12 +26,12 @@ const AdminDashboardComponent = () => {
                 </div>
             </div>
             {
-                <div class="table-responsive w-100">
-                    <table class="table w-100">
+                <div className="table-responsive w-100">
+                    <table className="table w-100">
                         <thead>
-                            <tr class="bg-light">
+                            <tr className="bg-light">
                                 {/* <th scope="col" width="5%">
-                                <input class="form-check-input" type="checkbox" />
+                                <input className="form-check-input" type="checkbox" />
                             </th> */}
                                 <th scope="col" className="mx-3">
                                     #
@@ -53,7 +56,7 @@ const AdminDashboardComponent = () => {
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <input class="form-check-input" type="checkbox" />
+                                    <input className="form-check-input" type="checkbox" />
                                 </th>
                                 <td className="mx-3">
                                     <img src="https://i.imgur.com/VKOeFyS.png" width="25" /> Althan
@@ -62,8 +65,8 @@ const AdminDashboardComponent = () => {
                                 <td className="mx-3">Avberfdsffwsefagfeag</td>
                                 <td className="mx-3">198614651981</td>
                                 <td className="mx-3">
-                                    <i class="fa fa-check-circle-o green"></i>
-                                    <span class="ms-1">25</span>
+                                    <i className="fa fa-check-circle-o green"></i>
+                                    <span className="ms-1">25</span>
                                 </td>
 
                                 <td className="mx-3">blocked</td>
@@ -72,12 +75,8 @@ const AdminDashboardComponent = () => {
                     </table>
                 </div>
             }
-            <Button variant="outline-dark mx-3 mb-5">
-                Block
-            </Button>
-            <Button variant="outline-dark mx-3 mb-5">
-                Active
-            </Button>
+            <Button variant="outline-dark mx-3 mb-5">Block</Button>
+            <Button variant="outline-dark mx-3 mb-5">Active</Button>
         </div>
     );
 };

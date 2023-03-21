@@ -7,6 +7,7 @@ import UserProfile from "./UserProfile";
 import SignIn from "./SignIn";
 import AdminPage from "./AdminPage";
 import AdminDashboard from "./AdminDashboard";
+import PaymentPage from "./PaymentPage";
 
 const Layout = () => {
     return (
@@ -19,6 +20,7 @@ const Layout = () => {
                 <Route path="/user-profile" element={<UserProfile />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                <Route path="/payment" element={<PaymentPage />} />
             </Routes>
         </div>
     );
