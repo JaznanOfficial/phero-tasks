@@ -1,9 +1,11 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import "./UserProfileComponent.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import useFirebase from "../../hooks/useFirebase";
 
 const UserProfileComponent = () => {
+    const { logOut } = useFirebase();
     return (
         <div className="container rounded bg-white mt-5 mb-5">
             <div className="row">
@@ -17,6 +19,15 @@ const UserProfileComponent = () => {
                         <span className="font-weight-bold">Edogaru</span>
                         <span className="text-black-50">edogaru@mail.com.my</span>
                         <span> </span>
+                        <Button
+                            variant="outline-dark "
+                            className="mt-5"
+                            onClick={() => {
+                                logOut();
+                            }}
+                        >
+                            Logout
+                        </Button>
                     </div>
                 </div>
                 <div className="col-md-5 border-right">

@@ -8,16 +8,52 @@ import SignIn from "./SignIn";
 import AdminPage from "./AdminPage";
 import AdminDashboard from "./AdminDashboard";
 import PaymentPage from "./PaymentPage";
+import PrivateRoute from "./PrivateRoute";
 
 const Layout = () => {
     return (
         <div>
             <Routes>
-                <Route path="/" element={<Homepage />} />
-                <Route path="/join-rider" element={<RiderJoin />} />
-                <Route path="/join-learner" element={<LearnerJoin />} />
-                <Route path="/sign-in" element={<SignIn />} />
-                <Route path="/user-profile" element={<UserProfile />} />
+                <Route
+                    path="/"
+                    element={
+                        <PrivateRoute>
+                            <Homepage />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/join-rider"
+                    element={
+                        <PrivateRoute>
+                            <RiderJoin />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/join-learner"
+                    element={
+                        <PrivateRoute>
+                            <LearnerJoin />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/sign-in"
+                    element={
+                        
+                            <SignIn />
+                        
+                    }
+                />
+                <Route
+                    path="/user-profile"
+                    element={
+                        <PrivateRoute>
+                            <UserProfile />
+                        </PrivateRoute>
+                    }
+                />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/admin-dashboard" element={<AdminDashboard />} />
                 <Route path="/payment" element={<PaymentPage />} />

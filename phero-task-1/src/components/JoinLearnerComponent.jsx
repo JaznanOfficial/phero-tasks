@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import useFirebase from "../hooks/useFirebase";
 
 const JoinLearnerComponent = () => {
+    const { signUpWithEmailAndPassword } = useFirebase();
     const nameRef = useRef();
     const emailRef = useRef();
     const phoneRef = useRef();
@@ -106,6 +108,7 @@ const JoinLearnerComponent = () => {
                 profileImage,
                 userType,
             });
+            signUpWithEmailAndPassword(email, password);
         } else {
             console.log("password doesn't match");
         }
@@ -191,15 +194,15 @@ const JoinLearnerComponent = () => {
                     <div className="mx-3">
                         <Form.Group controlId="formFile1" className="mb-3">
                             <Form.Label>Driving License pic</Form.Label>
-                            <Form.Control type="file" required onChange={handleLicenseImage} />
+                            <Form.Control type="file"  onChange={handleLicenseImage} />
                         </Form.Group>
                         <Form.Group controlId="formFile2" className="mb-3">
                             <Form.Label>NID pic</Form.Label>
-                            <Form.Control type="file" required onChange={handleNidImage} />
+                            <Form.Control type="file"  onChange={handleNidImage} />
                         </Form.Group>
                         <Form.Group controlId="formFile3" className="mb-3">
                             <Form.Label>Profile pic</Form.Label>
-                            <Form.Control type="file" required onChange={handleProfileImage} />
+                            <Form.Control type="file"  onChange={handleProfileImage} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicCarName">
                             <Form.Label>Car Name</Form.Label>

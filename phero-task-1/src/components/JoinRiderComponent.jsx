@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import useFirebase from "../hooks/useFirebase";
 
 const JoinRiderComponent = () => {
+    const { signUpWithEmailAndPassword } = useFirebase();
     const nameRef = useRef();
     const emailRef = useRef();
     const phoneRef = useRef();
@@ -86,13 +88,29 @@ const JoinRiderComponent = () => {
         const licenseImage = licenseImageUpload;
         const nidImage = nidImageUpload;
         const profileImage = profileImageUpload;
-        const userType = "rider"
+        const userType = "rider";
 
         if (password === confirmPassword) {
-            console.log({name,email,phone,age,address,area,carType,carName,carModel,carNamePalette,password,licenseImage,nidImage,profileImage, userType})
-        }
-        else {
-            console.log("password doesn't match")
+            console.log({
+                name,
+                email,
+                phone,
+                age,
+                address,
+                area,
+                carType,
+                carName,
+                carModel,
+                carNamePalette,
+                password,
+                licenseImage,
+                nidImage,
+                profileImage,
+                userType,
+            });
+            signUpWithEmailAndPassword(email, password);
+        } else {
+            console.log("password doesn't match");
         }
     };
     return (
@@ -113,11 +131,21 @@ const JoinRiderComponent = () => {
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" required ref={emailRef}/>
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter email"
+                                required
+                                ref={emailRef}
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicAge">
                             <Form.Label>Age</Form.Label>
-                            <Form.Control type="number" placeholder="Enter your age" required ref={ageRef}/>
+                            <Form.Control
+                                type="number"
+                                placeholder="Enter your age"
+                                required
+                                ref={ageRef}
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPhone">
                             <Form.Label>Phone number</Form.Label>
@@ -151,7 +179,12 @@ const JoinRiderComponent = () => {
                                 ref={areaRef}
                             />
                         </Form.Group>
-                        <Form.Select aria-label="Default select example" className="mt-2" required ref={carTypeRef}>
+                        <Form.Select
+                            aria-label="Default select example"
+                            className="mt-2"
+                            required
+                            ref={carTypeRef}
+                        >
                             <option>Car type</option>
                             <option value="car">Car</option>
                             <option value="bike">Bike</option>
@@ -173,23 +206,48 @@ const JoinRiderComponent = () => {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicCarName">
                             <Form.Label>Car Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter your full name" required ref={carNameRef} />
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter your full name"
+                                required
+                                ref={carNameRef}
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicCarModel">
                             <Form.Label>Car Model</Form.Label>
-                            <Form.Control type="text" placeholder="Enter your full name" required  ref={carModelRef} />
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter your full name"
+                                required
+                                ref={carModelRef}
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicCarPalette">
                             <Form.Label>Car Name Palette</Form.Label>
-                            <Form.Control type="text" placeholder="Enter your full name" required ref={carNamePaletteRef} />
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter your full name"
+                                required
+                                ref={carNamePaletteRef}
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" required ref={passwordRef}/>
+                            <Form.Control
+                                type="password"
+                                placeholder="Password"
+                                required
+                                ref={passwordRef}
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                             <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control type="password" placeholder="Confirm Password" required ref={confirmPasswordRef}/>
+                            <Form.Control
+                                type="password"
+                                placeholder="Confirm Password"
+                                required
+                                ref={confirmPasswordRef}
+                            />
                         </Form.Group>
                     </div>
                 </div>
